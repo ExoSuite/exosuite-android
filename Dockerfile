@@ -32,6 +32,6 @@ RUN apt-get install -y nodejs
 
 RUN npm install -g yarn react-native-cli
 
-RUN echo 999999 | sudo tee -a /proc/sys/fs/inotify/max_user_watches \
-    && echo 999999 | sudo tee -a /proc/sys/fs/inotify/max_queued_events \
-    && echo 999999 | sudo tee -a /proc/sys/fs/inotify/max_user_instances
+RUN echo 'fs.inotify.max_user_watches = 999999' >> /etc/sysctl.conf
+RUN echo 'fs.inotify.max_queued_events = 999999' >> /etc/sysctl.conf
+RUN echo 'fs.inotify.max_user_instances = 999999' >> /etc/sysctl.conf
