@@ -32,6 +32,9 @@ RUN apt-get install -y nodejs
 
 RUN npm install -g yarn react-native-cli
 
-RUN echo 'fs.inotify.max_user_watches = 999999' >> /etc/sysctl.conf
-RUN echo 'fs.inotify.max_queued_events = 999999' >> /etc/sysctl.conf
-RUN echo 'fs.inotify.max_user_instances = 999999' >> /etc/sysctl.conf
+RUN apt-get install -y git autoconf automake build-essential python-dev libtool pkg-config libssl-dev \
+    && git clone https://github.com/facebook/watchman.git
+RUN cd watchman/ && git checkout v4.9.0 && ./autogen.sh  && ./configure  && make -j3 && make install
+
+RUN rm -rf watchman/ \
+    && apt-get remove --purge -y git autoconf automake build-essential python-dev libtool libssl-dev pkg-config --autoremove
