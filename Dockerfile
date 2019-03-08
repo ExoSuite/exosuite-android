@@ -6,7 +6,7 @@ USER root
 
 RUN apt-get update && apt-get install build-essential -y && apt-get install file -y && apt-get install apt-utils -y
 
-RUN apt-get install -y ruby-full && gem install fastlane
+RUN apt-get install -y ruby-full && gem install fastlane -NV
 
 RUN curl -sL https://deb.nodesource.com/setup_11.x | bash -
 RUN apt-get install -y nodejs
