@@ -45,7 +45,7 @@ RUN gem install bundler
 
 RUN apt-get install imagemagick -y
 
-RUN useradd -ms /bin/bash exosuite
+RUN adduser --system --no-create-home exosuite
 
 USER exosuite
 
