@@ -45,4 +45,8 @@ RUN gem install bundler
 
 RUN apt-get install imagemagick -y
 
+RUN apt-get install libcurl4-openssl-dev -y
+
+RUN apt-get install libcurl4-gnutls-dev -y
+
 
