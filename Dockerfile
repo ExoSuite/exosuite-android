@@ -38,15 +38,12 @@ RUN apt-get install -y git autoconf automake build-essential python-dev libtool 
     && git clone https://github.com/facebook/watchman.git
 RUN cd watchman/ && git checkout v4.9.0 && ./autogen.sh  && ./configure  && make -j3 && make install
 
-RUN rm -rf watchman/ \
-    && apt-get remove --purge -y git autoconf automake build-essential python-dev libtool libssl-dev pkg-config --autoremove
-
 RUN gem install bundler
 
 RUN apt-get install imagemagick -y
+RUN apt-get install libcurl3 libcurl3-gnutls libcurl4-openssl-dev -y
 
-RUN apt-get install libcurl4-openssl-dev -y
+RUN rm -rf watchman
 
-RUN apt-get install libcurl4-gnutls-dev -y
 
 
