@@ -41,9 +41,12 @@ RUN cd watchman/ && git checkout v4.9.0 && ./autogen.sh  && ./configure  && make
 RUN rm -rf watchman/ \
     && apt-get remove --purge -y git autoconf automake build-essential python-dev libtool libssl-dev pkg-config --autoremove
 
-RUN gem install bundler && gem install curb -v '0.9.9' --source 'https://rubygems.org/'
+RUN gem install bundler
 
 RUN apt-get install imagemagick -y
 
+RUN useradd -ms /bin/bash exosuite
+
+USER exosuite
 
 
