@@ -43,5 +43,7 @@ RUN rm -rf watchman/ \
 
 RUN gem install bundler
 
+RUN apt-get install imagemagick -y
+
 
 
