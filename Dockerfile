@@ -28,9 +28,7 @@ RUN apt-get install -y nodejs
 
 # Install Build Essentials
 
-RUN apt-get update && apt-get install build-essential -y && apt-get install file -y && apt-get install apt-utils -y
-
-RUN apt-get install -y ruby-full
+RUN apt-get update && apt-get install build-essential -y && apt-get install file -y && apt-get install ruby-full apt-utils -y
 
 RUN npm install -g yarn react-native-cli
 
